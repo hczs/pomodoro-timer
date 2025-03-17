@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    /* 默认紫色主题 */
+    --primary: 270 50% 60%;
+    --primary-foreground: 0 0% 98%;
+    --ring: 270 50% 60%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 10%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 13%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 13%;
+    --popover-foreground: 0 0% 98%;
+
+    /* 默认紫色主题 - 暗色模式 */
+    --primary: 270 70% 70%;
+    --primary-foreground: 0 0% 98%;
+    --ring: 270 70% 70%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 75%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 25%;
+    --input: 240 3.7% 20%;
+  }
+
+  /* 紫色主题 - 亮色模式 */
+  .theme-purple {
+    --primary: 270 50% 60% !important;
+    --ring: 270 50% 60% !important;
+  }
+
+  /* 紫色主题 - 暗色模式 */
+  .dark.theme-purple,
+  .dark .theme-purple {
+    --primary: 270 70% 70% !important;
+    --ring: 270 70% 70% !important;
+  }
+
+  /* 粉色主题 - 亮色模式 */
+  .theme-pink {
+    --primary: 330 90% 65% !important;
+    --ring: 330 90% 65% !important;
+  }
+
+  /* 粉色主题 - 暗色模式 */
+  .dark.theme-pink,
+  .dark .theme-pink {
+    --primary: 330 90% 75% !important;
+    --ring: 330 90% 75% !important;
+  }
+
+  /* 蓝色主题 - 亮色模式 */
+  .theme-blue {
+    --primary: 210 100% 60% !important;
+    --ring: 210 100% 60% !important;
+  }
+
+  /* 蓝色主题 - 暗色模式 */
+  .dark.theme-blue,
+  .dark .theme-blue {
+    --primary: 210 100% 70% !important;
+    --ring: 210 100% 70% !important;
+  }
+
+  /* 备用方案：使用自定义属性选择器 */
+  [style*="--theme-color:purple"] {
+    --primary: 270 50% 60% !important;
+    --ring: 270 50% 60% !important;
+  }
+
+  [style*="--theme-color:pink"] {
+    --primary: 330 90% 65% !important;
+    --ring: 330 90% 65% !important;
+  }
+
+  [style*="--theme-color:blue"] {
+    --primary: 210 100% 60% !important;
+    --ring: 210 100% 60% !important;
+  }
+
+  .dark [style*="--theme-color:purple"] {
+    --primary: 270 70% 70% !important;
+    --ring: 270 70% 70% !important;
+  }
+
+  .dark [style*="--theme-color:pink"] {
+    --primary: 330 90% 75% !important;
+    --ring: 330 90% 75% !important;
+  }
+
+  .dark [style*="--theme-color:blue"] {
+    --primary: 210 100% 70% !important;
+    --ring: 210 100% 70% !important;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* 确保暗色模式下的文本可见性 */
+@layer utilities {
+  .dark .text-muted-foreground {
+    color: hsl(240 5% 75%);
+  }
+}
+
